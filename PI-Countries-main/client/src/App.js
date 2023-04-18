@@ -10,7 +10,7 @@ import LandingPage from './components/LandingPage';
 import NewActivity from "./components/formActivity/NewActivity";
 import Detail from "./components/Detail";
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3001/'
+axios.defaults.baseURL = 'https://pi-countries-main-production-fbc2.up.railway.app/'
 
 
 
