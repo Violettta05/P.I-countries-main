@@ -1,30 +1,34 @@
-//                       _oo0oo_
+//                       oo0oo
 //                      o8888888o
 //                      88" . "88
 //                      (| -_- |)
 //                      0\  =  /0
-//                    ___/`---'\___
+//                    _/`---'\___
 //                  .' \\|     |// '.
 //                 / \\|||  :  |||// \
 //                / _||||| -:- |||||- \
 //               |   | \\\  -  /// |   |
 //               | \_|  ''\---/''  |_/ |
-//               \  .-\__  '-'  ___/-. /
-//             ___'. .'  /--.--\  `. .'___
-//          ."" '<  `.___\_<|>_/___.' >' "".
+//               \  .-\__  '-'  _/-. /
+//             _'. .'  /--.--\  `. .'_
+//          ."" '<  `._\_<|>/__.' >' "".
 //         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-//         \  \ `_.   \_ __\ /__ _/   .-` /  /
-//     =====`-.____`.___ \_____/___.-`___.-'=====
+//         \  \ `.   \ _\ /_ _/   .-` /  /
+//     =====`-._`._ \_/_.-`__.-'=====
 //                       `=---='
-//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//     ~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-const {getApiInfo} = require('./src/routes/Controllers')
+const { getApiInfo } = require('./src/routes/Controllers.js');
+require('dotenv').config();
+const {
+  PORT
+} = process.env;
 
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
-  server.listen(6974, () => {
+  server.listen(PORT, () => {
     getApiInfo();
-    console.log('%s listening at 6974'); // eslint-disable-line no-console
+    console.log(`%s listening at ${PORT} `); // eslint-disable-line no-console
   });
 });
